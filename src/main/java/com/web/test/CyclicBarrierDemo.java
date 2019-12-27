@@ -1,6 +1,9 @@
 package com.web.test;
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.atomic.AtomicStampedReference;
 
 public class CyclicBarrierDemo {
 
@@ -19,6 +22,13 @@ public class CyclicBarrierDemo {
 					e.printStackTrace();
 				}
 			},String.valueOf(num)).start();
+		}
+
+		BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(5);
+		queue.add(1);
+		queue.add(2);
+		for (Integer integer : queue) {
+			System.out.println(integer);
 		}
 	}
 
